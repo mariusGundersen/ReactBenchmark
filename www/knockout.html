@@ -1,0 +1,13 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>knockout</title>
+    <script src="js/knockout-latest.js"></script>
+    <script src="js/stats.js"></script>
+    <script src="js/knockout.js"></script>
+  </head>
+  <body>
+    <div id="grid" data-bind="foreach: rows"><div data-bind="foreach: $data"><input type="checkbox" data-bind="checked: $data" /></div></div>  
+  </body>
+</html>
