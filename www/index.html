@@ -4,8 +4,33 @@
   <head>
   </head>
   <body>
-    <a href="inner.html">innerHTML</a><br>
-    <a href="react.html">React</a><br>
-    <a href="knockout.html">Knockout</a>
+    <h1>A very silly benchmark</h1>
+    <p>
+      I wanted to see how React handled a large model with a tiny change, compared to other ways of doing it.
+      This is the very silly and completely useless benchmarking I came up with.
+    </p>
+    <p>
+      Each of the pages below will show a grid of 50x50 checkboxes, where one checkbox is checked/unchecked every frame, using requestAnimationFrame. 
+      In the top right you can see an FPS meter that shows how many times per second the grid can be rendered.
+    </p>
+    
+    <h2><a href="inner.html">innerHTML</a></h2>
+    <p>The naive way, rendering the entire grid everytime using innerHTML. On the surface this is what it looks like React is doing</p>
+    <hr>
+    
+    <h2><a href="react.html">React</a></h2>
+    <p>Rendering the same grid using react. React doesn't actually render the entire grid every time, instead it tries to figure out what has changed since the previous render and it only updates the DOM elements that have changed.
+      Note the two optimze options at the bottom of the page. They enable a feature that helps React in finding only the DOM element that has actually changed.
+      Without optimization React is just as slow as innerHTML, but with optimization it becomes as fast as the direct example</p>
+    <hr>
+    
+    <h2><a href="knockout.html">Knockout</a></h2>
+    <p>Rendering the grid using a library I'm familiar with. Just like React, Knockout tries to minimize the number of DOM manipulations it takes to rerender the model. Knockout seems to be just as fast as the direct example</p>
+    <hr>
+    
+    <h2><a href="direct.html">Direct</a></h2>
+    <p>Directly manipulate the single changing dom element. This is probably the fastest you could possibly do this. </p>
+    <hr>
+    
   </body>
 </html>
